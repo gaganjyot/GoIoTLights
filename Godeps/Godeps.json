@@ -7,14 +7,6 @@
 			"Rev": "44145f04b68cf362d9c4df2182967c2275eaefed"
 		},
 		{
-			"ImportPath": "github.com/gorilla/context",
-			"Rev": "215affda49addc4c8ef7e2534915df2c8c35c6cd"
-		},
-		{
-			"ImportPath": "github.com/gorilla/mux",
-			"Rev": "8096f47503459bcc74d1f4c487b7e6e42e5746b5"
-		},
-		{
 			"ImportPath": "github.com/kidoman/embd",
 			"Rev": "91dc0f57445fde2d133003dd6954e41fecccff3b"
 		}

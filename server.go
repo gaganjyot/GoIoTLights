@@ -45,11 +45,25 @@ func (wc *WebController) Handle(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func (wc *WebController) LightOff(w http.ResponseWriter, r* http.Request) {
+    embd.DigitalWrite(wc.pin, embd.Low)
+    wc.pinOn = false
+	fmt.Fprintf(w, "Device is switched Off")
+}
+
+func (wc *WebController) LightOn(w http.ResponseWriter, r* http.Request) {
+    embd.DigitalWrte(wc.pin, embd.High)
+    wc.pinOn = true
+	fmt.Fprintf(w, "Device is switched On")
+}
+
 func startHttp() {
 	// start web controller on pin 10
 	wc := newWebController(10)
 
-	http.HandleFunc("/", wc.Handle)
+	http.HandleFunc("/light/toggle", wc.Handle)
+	http.HandleFunc("/light/off", wc.LightOff)
+	http.HandleFunc("/light/on", wc.LightOn)
 	log.Fatal(http.ListenAndServe(":8080", nil))
 }
 
